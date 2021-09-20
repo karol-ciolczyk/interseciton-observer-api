@@ -8,16 +8,17 @@ window.onscroll = function (e) {
 const targets = document.querySelectorAll("h2");
 
 const changeBackgroundColor = function (entries, observer) {
+  console.log(entries);
   let randomNum1 = Math.random() * 255;
   let randomNum2 = Math.random() * 255;
 
-  const topViewPortEvent = entries[0].intersectionRect.top;
+  const topIntersectionRect = entries[0].intersectionRect.top;
 
-  if (isScrollUp && topViewPortEvent > 150) {
+  if (isScrollUp && topIntersectionRect > 150) {
     console.log("fired up");
     document.body.style.backgroundColor = `rgba(140, ${randomNum1}, ${randomNum2}, 0.5)`;
   }
-  if (!isScrollUp && topViewPortEvent > 150) {
+  if (!isScrollUp && topIntersectionRect > 150) {
     console.log("fired down");
     document.body.style.backgroundColor = `rgba(140, ${randomNum1}, ${randomNum2}, 0.5)`;
   }
